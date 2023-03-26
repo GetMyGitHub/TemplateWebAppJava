@@ -21,6 +21,7 @@ public class ProductRepository {
 		em.getTransaction().begin();
 		em.persist(product);
 		em.getTransaction().commit();
+		System.out.println(product.toString());
 		return product;
 	}
 
@@ -33,6 +34,9 @@ public class ProductRepository {
 
 	@SuppressWarnings("unchecked")
 	public List<Product> findAll() {
+		for (Product product : (List<Product>) em.createQuery("from Product").getResultList() ) {
+			System.out.println(product.toString());
+		}
 		return em.createQuery("from Product").getResultList();
 	}
 

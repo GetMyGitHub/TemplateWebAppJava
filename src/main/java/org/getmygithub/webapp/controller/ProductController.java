@@ -47,7 +47,8 @@ public class ProductController {
 	 */
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Product> getProductList(@NotBlank(message = "Consumerkey is required") @QueryParam(value = "consumerKey") String consumerKey) {
+	//public List<Product> getProductList(@NotBlank(message = "Consumerkey is required") @QueryParam(value = "consumerKey") String consumerKey) {
+	public List<Product> getProductList() {
 		//log.info("Consumer: {}", consumerKey);
 		return productService.findAll();
 	}

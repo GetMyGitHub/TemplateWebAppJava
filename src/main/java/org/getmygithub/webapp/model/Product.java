@@ -1,5 +1,6 @@
 package org.getmygithub.webapp.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +18,7 @@ import lombok.NoArgsConstructor;
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Long id;
 
 	@NotBlank(message = "Product name is required")
@@ -39,10 +41,11 @@ public class Product {
 
 	public void setPrice(String price) {
 		this.price = price;
-	}
+	}	
 	
-	
-	
-	
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", price=" + price + "]";
+	}	
 	
 }
